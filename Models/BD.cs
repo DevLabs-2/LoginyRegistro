@@ -9,15 +9,23 @@ public static class BD
         using (SqlConnection db = new SqlConnection(ConnectionString))
             {
                 string sql = "SELECT * FROM Usuario WHERE Username = @username";
-                Usuario = db.QueryFirstOrDefault<Usuario>(sql, new {username = username});
+                return db.QueryFirstOrDefault<Usuario>(sql, new {username = username});
             }
     }
 
-    public static UpdateUsuario(string usernameAnterior, string username, string contraseña, string nombre, string apellido, string mail){
+    public static void UpdateUser(string usernameAnterior, Usuario user){
         using (SqlConnection db = new SqlConnection(ConnectionString))
             {
-                string sql = "UPDATE Usuario SET Username = @username, Contraseña = @contraseña, Nombre = @nombre, Apellido = @apellido, Mail = @mail WHERE Username = @usernameAnterior";
-                Usuario = db.QueryFirstOrDefault<Usuario>(sql, new {usernameAnterior = usernameAnterior, username = username, contraseña = contraseña, nombre = nombre, apellido = apellido, mail = mail});
+                string sql = "UPDATE Usuario SET Username = @username, Contrasenia = @contrasenia, Nombre = @nombre, Apellido = @apellido, Mail = @mail WHERE Username = @usernameAnterior";
+                db.Execute(sql, new {usernameAnterior = usernameAnterior, username = user.username, contrasenia = user.contrasenia, nombre = user.nombre, apellido = user.apellido, mail = user.mail});
+            }
+    }
+
+    public static void CreateUser(Usuario user){
+         using (SqlConnection db = new SqlConnection(ConnectionString))
+            {
+                string sql = "INSERT INTO Usuarios (Username, Contrasenia, Nombre, Apellido, Mail) VALUES (@username, @contrasenia, @nombre, @apellido, @mail)";
+                db.Execute(sql, new {username = user.username, contrasenia = user.contrasenia, nombre = user.nombre, apellido = user.apellido, mail = user.mail});
             }
     }
 

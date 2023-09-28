@@ -13,20 +13,50 @@ public class AccountController : Controller{
         _logger = logger;
     }
     public IActionResult Registrarse(){
-        
         return View();
     }
-    public IActionResult Login(string username, string contraseña){
-        Usuario user = GetUserByUsername(username)
-        if (contraseña = user.contraseña)
+    public IActionResult Registro(string username, string contrasenia, string nombre, string apellido, string mail){
+        Usuario user = new Usuario(username,contrasenia,nombre,apellido,mail);
+        BD.CreateUser(user);
+        return RedirectToAction("Login");
+    }
+
+    public IActionResult Login(bool retry){
+        ViewBag.retry = retry;
+        ViewBag.alert = "Datos no válidos";
+        return View();
+    }
+
+    public IActionResult VerifLogin(string username, string contrasenia){
+        Usuario user = BD.GetUserByUsername(username);
+        if (contrasenia == user.contrasenia)
         {
-            
+            return RedirectToAction("Home");
         }
         else
         {
-            
+            return RedirectToAction("Login", new {retry = true});
         }
-        RedirectToAction("Index")
+        
+    }
+    public IActionResult Olvido(bool retry){
+        ViewBag.retry = retry;
+        ViewBag.alert = "Datos no válidos";
+        return View();
+    }
+    public IActionResult Recordado(string username, string mail){
+        Usuario user = BD.GetUserByUsername(username);
+        if(user.mail == mail){
+            ViewBag.contrasenia = user.contrasenia;
+            return View();
+        }
+        else
+        {
+            return RedirectToAction("Olvido", new {retry = true})
+        }
+    }
+    public IActionResult Home(){
+        return View();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
