@@ -1,15 +1,15 @@
 public class Usuario{
-    string Username {get;set;}
-    string Contrasenia {get;set;}
-    string Nombre {get;set;}
-    string Apellido {get;set;}
-    string Mail {get;set;}
+    public string username {get;set;}
+    public string contrasenia {get;set;}
+    public string nombre {get;set;}
+    public string apellido {get;set;}
+    public string mail {get;set;}
 
     public Usuario(string username, string contrasenia,  string nombre, string apellido, string mail){
-        Username = username;
-        Contrasenia = contrasenia;
-        Nombre = nombre;
-        Apellido = apellido;
-        Mail = mail;
+        username = username;
+        contrasenia = contrasenia;
+        nombre = nombre;
+        apellido = apellido;
+        mail = mail;
     }
 }

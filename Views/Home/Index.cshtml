@@ -1,4 +1,20 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Chino Gay";
 }
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <form action='@Url.Action("Login")'>
+        <button type="submit">Login</button>
+    </form>
+    <form action='@Url.Action("Registrarse")'>
+        <button type="submit">Registrarse</button>
+    </form>
+</body>
+</html>

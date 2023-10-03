@@ -12,19 +12,11 @@ public class AccountController : Controller{
     {
         _logger = logger;
     }
-    public IActionResult Registrarse(){
-        return View();
-    }
+   
     public IActionResult Registro(string username, string contrasenia, string nombre, string apellido, string mail){
         Usuario user = new Usuario(username,contrasenia,nombre,apellido,mail);
         BD.CreateUser(user);
         return RedirectToAction("Login");
-    }
-
-    public IActionResult Login(bool retry){
-        ViewBag.retry = retry;
-        ViewBag.alert = "Datos no válidos";
-        return View();
     }
 
     public IActionResult VerifLogin(string username, string contrasenia){
@@ -39,11 +31,6 @@ public class AccountController : Controller{
         }
         
     }
-    public IActionResult Olvido(bool retry){
-        ViewBag.retry = retry;
-        ViewBag.alert = "Datos no válidos";
-        return View();
-    }
     public IActionResult Recordado(string username, string mail){
         Usuario user = BD.GetUserByUsername(username);
         if(user.mail == mail){
@@ -52,11 +39,8 @@ public class AccountController : Controller{
         }
         else
         {
-            return RedirectToAction("Olvido", new {retry = true})
+            return RedirectToAction("Olvido", new {retry = true});
         }
-    }
-    public IActionResult Home(){
-        return View();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
