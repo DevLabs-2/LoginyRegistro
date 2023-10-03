@@ -12,26 +12,26 @@ public class AccountController : Controller{
     {
         _logger = logger;
     }
-   
-    public IActionResult Registro(string username, string contrasenia, string nombre, string apellido, string mail){
+  
+    [HttpPost] public IActionResult Registro(string username, string contrasenia, string nombre, string apellido, string mail){
         Usuario user = new Usuario(username,contrasenia,nombre,apellido,mail);
         BD.CreateUser(user);
         return RedirectToAction("Login");
     }
 
-    public IActionResult VerifLogin(string username, string contrasenia){
+    [HttpPost] public IActionResult VerifLogin(string username, string contrasenia){
         Usuario user = BD.GetUserByUsername(username);
         if (contrasenia == user.contrasenia)
         {
-            return RedirectToAction("Home");
+            return RedirectToAction("Home","Home");
         }
         else
         {
-            return RedirectToAction("Login", new {retry = true});
+            return RedirectToAction("Login", "Home",new {retry = true});
         }
         
     }
-    public IActionResult Recordado(string username, string mail){
+    [HttpPost] public IActionResult Recordado(string username, string mail){
         Usuario user = BD.GetUserByUsername(username);
         if(user.mail == mail){
             ViewBag.contrasenia = user.contrasenia;
@@ -39,7 +39,7 @@ public class AccountController : Controller{
         }
         else
         {
-            return RedirectToAction("Olvido", new {retry = true});
+            return RedirectToAction("Olvido", "Home", new {retry = true});
         }
     }
 

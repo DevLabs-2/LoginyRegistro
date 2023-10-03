@@ -5,11 +5,14 @@ public class Usuario{
     public string apellido {get;set;}
     public string mail {get;set;}
 
-    public Usuario(string username, string contrasenia,  string nombre, string apellido, string mail){
-        username = username;
-        contrasenia = contrasenia;
-        nombre = nombre;
-        apellido = apellido;
-        mail = mail;
+    public Usuario(string user, string contra, string nom, string ape, string ma){
+        username = user;
+        contrasenia = contra;
+        nombre = nom;
+        apellido = ape;
+        mail = ma;
+    }
+    public Usuario(){
+        
     }
 }

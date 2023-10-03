@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Chino Gay";
+    ViewData["Title"] = "Login y Registro";
 }
 
 <!DOCTYPE html>
@@ -11,6 +11,7 @@
 </head>
 <body>
     <form action='@Url.Action("Login")'>
+        <input type="hidden" name="retry" value=false>
         <button type="submit">Login</button>
     </form>
     <form action='@Url.Action("Registrarse")'>
