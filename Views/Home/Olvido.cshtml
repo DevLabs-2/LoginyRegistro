@@ -7,10 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <form action='@Url.Action("Recuerdo","Account")'>
-        <input type="text" id="username" name="username" placeholder="Nombre de usuario">
-        <input type="text" id="mail" name="mail" placeholder="Mail">
-        <input type="submit" value="Ingresar">
+    <div class="body">
+        <h1>TP login</h1>
+    <h3>Ingresa tu usuario y mail, para recordar tu contraseña.</h3>
+    <form action='@Url.Action("Recordado","Account")' method="post">
+        <input type="text" class="formelement" id="username" name="username" placeholder="Nombre de usuario">
+        <input type="text" class="formelement" id="mail" name="mail" placeholder="Mail">
+        <input type="submit" class="formelement" value="Ingresar">
     </form>
+    @if (ViewBag.retry == true)
+    {
+        <h2>Datos incorrectos, ingresa de nuevo</h2>
+    }
+    </div>
 </body>
 </html>

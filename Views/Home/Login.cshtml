@@ -7,10 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <form action='@Url.Action("VerifLogin", "Account")' method="post">
-        <input type="text" id="username" name="username" placeholder="Nombre de usuario" required>
-        <input type="password" id="contrasenia" name="contrasenia" placeholder="Contraseña" required>
-        <input type="submit" value="Ingresar">
+    <div class="body">
+        <h1>TP login</h1>
+    <h3>Inicia sesión con tu nombre y contraseña</h3>
+        <form action='@Url.Action("VerifLogin", "Account")' method="post">
+        <input type="text" class="formelement" id="username" name="username" placeholder="Nombre de usuario" required>
+        <input type="password" class="formelement" id="contrasenia" name="contrasenia" placeholder="Contraseña" required>
+        <input type="submit" class="formelement" value="Ingresar">
     </form>
     @if (ViewBag.retry == true)
     {
@@ -19,5 +22,6 @@
     <form action='@Url.Action("Olvido")'>
         <input type="submit" value="Olvide mi contraseña">
     </form>
+    </div>
 </body>
 </html>

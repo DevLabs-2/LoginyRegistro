@@ -17,6 +17,38 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+body, .body{
+  width: 100%;
+  height: 1080px;
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+h1{
+  display: block;
+  justify-content: flex-start;
+}
+
+form{
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+ }
+button{
+  margin-top: 3rem;
+  width: 450px;
+}
+.formelement{
+  margin-top: 3rem;
+}
+.centro {
+  width: 100%;
+  height: 500px;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

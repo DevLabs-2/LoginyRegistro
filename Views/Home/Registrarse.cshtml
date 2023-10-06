@@ -7,13 +7,17 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="body">
+        <h1>TP login</h1>
+    <h3>Resgistrá tu cuenta</h3>
     <form action='@Url.Action("Registro","Account")' method="post">
-        <input type="text" id="username" name="username" placeholder="Nombre de usuario" required>
-        <input type="password" id="contrasenia" name="contrasenia" placeholder="Contraseña" required>
-        <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-        <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
-        <input type="text" id="mail" name="mail" placeholder="Mail" required>
-        <input type="submit" value="Ingresar">
+        <input type="text" class="formelement" id="username" name="username" placeholder="Nombre de usuario" required>
+        <input type="password" class="formelement" id="contrasenia" name="contrasenia" placeholder="Contraseña" required>
+        <input type="text" class="formelement" id="nombre" name="nombre" placeholder="Nombre" required>
+        <input type="text" class="formelement" id="apellido" name="apellido" placeholder="Apellido" required>
+        <input type="text" class="formelement" id="mail" name="mail" placeholder="Mail" required>
+        <input type="submit" value="Ingresar" class="formelement" >
     </form>
+    </div>
 </body>
 </html>     

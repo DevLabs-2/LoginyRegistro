@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "a3uFYQRKZczlCn/7FZ25UEwLHzOUrioQdePvOZkGUTIT5yxTpJSgZNKxzwf2bm5p95zw1+o9Gyrc+Pq29F084w==",
+  "dgSpecHash": "NF1QsGYxRmwv3vfOhsg2d+3CA5nG9KAYJrlQKkgDgBHNVSy47FyBPjPGY3SJRIDrGECb9KglSCitvcuS5VochQ==",
   "success": true,
   "projectFilePath": "Z:\\DevLabs 2 ORG\\LoginyRegistro\\LoginyRegistro.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\47392040\\.nuget\\packages\\dapper\\2.0.151\\dapper.2.0.151.nupkg.sha512",
+    "C:\\Users\\47392040\\.nuget\\packages\\dapper\\2.1.4\\dapper.2.1.4.nupkg.sha512",
     "C:\\Users\\47392040\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\47392040\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\47392040\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",

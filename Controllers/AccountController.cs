@@ -21,25 +21,27 @@ public class AccountController : Controller{
 
     [HttpPost] public IActionResult VerifLogin(string username, string contrasenia){
         Usuario user = BD.GetUserByUsername(username);
-        if (contrasenia == user.contrasenia)
+        if (user == null)
         {
-            return RedirectToAction("Home","Home");
+            return RedirectToAction("Login", "Home",new {retry = true});
         }
         else
         {
-            return RedirectToAction("Login", "Home",new {retry = true});
+            if(user.contrasenia == contrasenia) return RedirectToAction("Home","Home");
+            else return RedirectToAction("Login", "Home",new {retry = true});
         }
         
     }
     [HttpPost] public IActionResult Recordado(string username, string mail){
         Usuario user = BD.GetUserByUsername(username);
-        if(user.mail == mail){
-            ViewBag.contrasenia = user.contrasenia;
-            return View();
-        }
-        else
-        {
+        if(user == null){
             return RedirectToAction("Olvido", "Home", new {retry = true});
+        }
+        else{
+            if(user.mail == mail){
+            return RedirectToAction("Recordado","Home", new {contrasenia = user.contrasenia});
+        }
+        else {return RedirectToAction("Olvido", "Home", new {retry = true});}
         }
     }
 

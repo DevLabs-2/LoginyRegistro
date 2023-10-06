@@ -36,7 +36,13 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Olvido(){
+    public IActionResult Olvido(bool retry){
+        ViewBag.retry = retry;
+        return View();
+    }
+
+    public IActionResult Recordado(string contrasenia){
+        ViewBag.contrasenia = contrasenia;
         return View();
     }
 
